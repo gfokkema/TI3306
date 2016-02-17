@@ -1,0 +1,56 @@
+\documentclass[11pt,twoside,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{pbox}
+
+%Pseudocode
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+%Automata
+\usepackage{tikz}
+\usetikzlibrary{automata,arrows}
+
+\usepackage{a4wide,times}
+\title{TI2316 \\
+       Complexiteitstheorie \\
+       Opdracht 1}
+\author{Gerlof Fokkema, gfokkema, 4257286 \\
+        Skip Lentz, smlentz, 4334051}
+\begin{document}
+\maketitle
+
+Gegeven is het BOUNDED CIRCUIT probleem: \\
+
+\begin{tabular}{ll}
+\textbf{Instantie} & \pbox{20cm}{Een graaf $G = (V, E)$, voor iedere $e \in E$ een lengte $l(e) \in Z^+$ \\
+                                 een subset $E' \subseteq E$ en een positief geheel getal $K$.} \\\\
+\textbf{Vraag}     & \pbox{20cm}{Bestaat er een circuit in $G$ dat alle kanten in $E'$ bevat en een \\
+                                 totale lengte heeft die $K$ of minder bedraagt?} \\
+\end{tabular} \\\\
+
+
+Om aan te tonen dat dit probleem een NP-moeilijk probleem is, wordt de volgende
+transformatie van Hamiltoons Circuit naar dit probleem gegeven: \\
+
+Laat G = (V, E) een instantie zijn van HAMILTOONS CIRCUIT.
+Creeer de volgende instantie $(G_B = (V_B, E_B), l, E'_B, K)$ van BOUNDED CIRCUIT:
+\par\noindent
+\begin{flalign}
+  V_B  &= V \cup \{ v'\ |\ v \in V \}
+       & \\
+  E_B  &= \{ \{ v, v' \}\ |\ v \in V \} \cup \{ \{v', w \}, \{ v, w' \}\ |\ \{ v, w \} \in E \}
+       & \\
+  E'_B &= \{ \{ v, v' \}\ |\ v \in V \}
+       & \\
+  l(e) &= 1 \text{ voor alle $e \in E_B$}
+       & \\
+  K    &= 2 \cdot |V|
+       & 
+\end{flalign}
+\end{document}
